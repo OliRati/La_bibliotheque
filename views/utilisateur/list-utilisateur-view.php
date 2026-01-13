@@ -11,7 +11,7 @@ include 'views/partials/header.php';
         endif;
         ?>
 
-        <h1>Liste des utilisateurs</h1>
+        <h1 class="title">Liste des utilisateurs</h1>
         
         <a href="<?= WEB_ROOT . '/utilisateur/add-utilisateur.php' ?>"
         role="button"> Ajouter un utilisateur</a>
@@ -32,10 +32,10 @@ include 'views/partials/header.php';
                         <td><?= htmlspecialchars($utilisateur['prenom']); ?></td>
                         <td><?= htmlspecialchars($utilisateur['email']); ?></td>
                         <td>
-                            <a href="<?= WEB_ROOT . '/utilisateur/edit-utilisateur.php?id=' .$utilisateur['id_utilisateurs'] ?>"
+                            <a href="<?= WEB_ROOT . '?page=edit-utilisateur&id=' .$utilisateur['id_utilisateur'] ?>"
                             role="button">Edit</a>
 
-                            <a href="<?= WEB_ROOT . '/utilisateur/del-utilisateur.php?id=' .$utilisateur['id_utilisateurs'] ?>"
+                            <a href="<?= WEB_ROOT . '?page=del-utilisateur&id=' .$utilisateur['id_utilisateur'] ?>"
                             role="button"
                             onclick="return confirm('Etes-vous sur de vouloir supprimer cet utilisateur ?');">Supprimer</a>
                         </td>

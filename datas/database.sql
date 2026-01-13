@@ -8,14 +8,14 @@ CREATE DATABASE IF NOT EXISTS bibliotheque;
 
 USE bibliotheque;
 
-CREATE TABLE utilisateurs(
-    id_utilisateurs int NOT NULL AUTO_INCREMENT,
+CREATE TABLE utilisateur(
+    id_utilisateur int NOT NULL AUTO_INCREMENT,
     nom varchar(45) NOT NULL,
     prenom varchar(45) NOT NULL,
     email varchar(45) NOT NULL,
     password varchar(60) NOT NULL,
     role ENUM('abonne', 'employe') DEFAULT 'abonne',
-    PRIMARY KEY (id_utilisateurs)
+    PRIMARY KEY (id_utilisateur)
 ) ENGINE=INNODB;
 
 
@@ -32,7 +32,7 @@ CREATE TABLE livre(
 CREATE TABLE emprunt(
     id_emprunt int NOT NULL AUTO_INCREMENT,
     id_livre int DEFAULT NULL,
-    id_utilisateurs int DEFAULT NULL,
+    id_utilisateur int DEFAULT NULL,
     date_sortie date NOT NULL,
     date_rendu date DEFAULT NULL,
     statut varchar(50), 
@@ -43,7 +43,7 @@ CREATE TABLE emprunt(
 -- Example test data set
 --
 
-INSERT INTO utilisateurs (nom, prenom, email, password, role) VALUES
+INSERT INTO utilisateur (nom, prenom, email, password, role) VALUES
 ('Dupont', 'Jean', 'jean.dupont@example.com', MD5('password123'), 'abonne'),
 ('Martin', 'Claire', 'claire.martin@example.com', MD5('password456'), 'employe'),
 ('Bernard', 'Luc', 'luc.bernard@example.com', MD5('password789'), 'abonne'),
@@ -55,7 +55,7 @@ INSERT INTO livre (auteur, titre, resume, genre) VALUES
 ('Orwell', '1984', 'Un roman dystopique sur un futur totalitaire.', 'Science-fiction'),
 ('Rowling', 'Harry Potter à l''école des sorciers', 'L''aventure d''un jeune sorcier.', 'Fantasy');
 
-INSERT INTO emprunt (id_livre, id_utilisateurs, date_sortie, date_rendu, statut) VALUES
+INSERT INTO emprunt (id_livre, id_utilisateur, date_sortie, date_rendu, statut) VALUES
 (1, 1, '2026-01-01', NULL, 'en cours'),
 (2, 2, '2026-01-05', '2026-01-12', 'terminé'),
 (3, 3, '2026-01-10', NULL, 'en cours'),

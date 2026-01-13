@@ -1,13 +1,13 @@
 <?php
 $titleBibliothèque = "Liste des livres";
 require PHP_ROOT. '/views/partials/header.php';
-    if (count($livreArray) === 0) :
+    if (count($livres) === 0) :
         echo '<h3>Aucun livre !</h3>';
         echo '<a href="' .  WEB_ROOT . '/livre/add-livre.php" role="button">Ajouter un livre</a>';
         die();
     endif;
 ?>
-    <h1>Liste des livres</h1>
+    <h1 class="title">Liste des livres</h1>
     <a href="<?= WEB_ROOT . '/livre/add-livre.php' ?>" role="button">Ajouter un livre</a>
     <table>
         <thead>
@@ -20,7 +20,7 @@ require PHP_ROOT. '/views/partials/header.php';
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($livreArray as $livre) : ?>
+            <?php foreach ($livres as $livre) : ?>
                 <tr>
                     <td><?= $livre['id_livre']; ?></td>
                     <td><?= $livre['auteur']; ?></td>

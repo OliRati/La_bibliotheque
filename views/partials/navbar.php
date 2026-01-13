@@ -4,7 +4,7 @@
             <div class="logo">
                 <a href="<?= WEB_ROOT . "?page=search-livres" ?>"
                     style="text-decoration: none; color: #b0dcb0;">
-                    <h1 style="margin-bottom: 0; color: #b0dcb0; font-size: 2rem; letter-spacing: 0.2rem;">La Bibliothèque</h1>
+                    <h1 style="margin-bottom: 0; color: #b0dcb0; font-size: 1.8rem; letter-spacing: 0.2rem;">La Bibliothèque</h1>
                 </a>
             </div>
 
@@ -23,7 +23,7 @@
 
                 <div class="menu-item">
                     <a href="<?= WEB_ROOT . "?page=list-emprunts" ?>">
-                        Reservations
+                        Emprunts
                     </a>
                 </div>
 
@@ -41,7 +41,7 @@
 
                 <div class="menu-item">
                     <a href="<?= WEB_ROOT . "?page=list-meslivres" ?>">
-                        Mes réservations
+                        Mes emprunts
                     </a>
                 </div>
             <?php } else { ?>

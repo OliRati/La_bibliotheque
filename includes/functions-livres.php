@@ -50,3 +50,7 @@ function supprimerLivre($pdo, $id)
     $suppResult = $stm->execute();
     return $suppResult;
 }
+
+function searchLivres($pdo, $searchTerm)
+{
+}

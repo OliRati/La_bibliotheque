@@ -6,7 +6,7 @@ function is_logged_in()
 
 function is_admin()
 {
-    return is_logged_in() && $_SESSION['role'] === 'admin';
+    return is_logged_in() && $_SESSION['role'] === 'employe';
 }
 
 function logout_user()
@@ -18,7 +18,7 @@ function logout_user()
 
 function login_user($pdo, $email, $password)
 {
-    if (empty($login) || empty($password)) {
+    if (empty($email) || empty($password)) {
         return [
             'success' => false,
             'message' => 'Tous les champs sont obligatoires.'
@@ -46,7 +46,7 @@ function login_user($pdo, $email, $password)
 
     $_SESSION['logged'] = true;
     $_SESSION['id_utilisateurs'] = $user['id_utilisateurs'];
-    $_SESSION['name'] = $user['name'];
+    $_SESSION['email'] = $user['email'];
     $_SESSION['role'] = $user['role'];
 
     return [

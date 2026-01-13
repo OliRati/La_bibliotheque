@@ -34,7 +34,7 @@
                 </div>
             <?php } elseif (is_logged_in()) { ?>
                 <div class="menu-item">
-                    <a href="<?= WEB_ROOT . "?page=edit-profil.php&id=" . $_SESSION['id_users'] ?>">
+                    <a href="<?= WEB_ROOT . "?page=edit-profil.php&id=" . $_SESSION['id_utilisateurs'] ?>">
                         Profil
                     </a>
                 </div>
@@ -68,7 +68,7 @@
                 </a>
             </div>
             <?php if (is_logged_in()) { ?>
-                <div><?= $_SESSION['name'] ?></div>
+                <div><?= $_SESSION['email'] ?></div>
             <?php } ?>
             <?php if (is_admin()) { ?>
                 <div class="admin">Administration</div>

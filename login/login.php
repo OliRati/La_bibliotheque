@@ -4,6 +4,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $password = trim($_POST['password']);
 
     $ret = login_user($pdo, $email, $password);
+    
     if ($ret['success'] === true) {
         redirect('?page=home');
         exit;

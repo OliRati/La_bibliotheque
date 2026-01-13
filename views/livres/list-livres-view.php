@@ -1,6 +1,6 @@
 <?php
 $titleBibliothèque = "Liste des livres";
-require PATH_PROJET . '/views/partials/header.php';
+require PHP_ROOT. '/views/partials/header.php';
     if (count($livreArray) === 0) :
         echo '<h3>Aucun livre !</h3>';
         echo '<a href="' .  WEB_ROOT . '/livre/add-livre.php" role="button">Ajouter un livre</a>';
@@ -35,4 +35,4 @@ require PATH_PROJET . '/views/partials/header.php';
             <?php endforeach ?>
         </tbody>
     </table>
-<?php require PATH_PROJET . '/views/partials/footer.php';  ?>
+<?php require PHP_ROOT . '/views/partials/footer.php';  ?>

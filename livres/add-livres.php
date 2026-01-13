@@ -1,7 +1,4 @@
 <?php
-include dirname(__DIR__) . '/functions.php';
-require dirname(__DIR__) . '/dbconnexion.php';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
 
  $auteur = nettoyer($_POST['auteur']);
@@ -18,4 +15,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     }
 }
 
-include PATH_PROJET . '/views/livres/add-livre-view.php';
+include PHP_ROOT . '/views/livres/add-livres-view.php';

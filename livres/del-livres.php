@@ -1,7 +1,4 @@
 <?php
-include dirname(__DIR__) . '/functions.php';
-require dirname(__DIR__) . '/dbconnexion.php';
-
 $idSuppLivres = $_GET['id'] ?? null;
 
 if (! is_numeric($idSuppLivres)  ) {

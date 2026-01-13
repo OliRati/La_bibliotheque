@@ -1,6 +1,6 @@
 <?php 
 $titleBibliothèque = "Edition d'un livre";
-require PATH_PROJET . '/views/partials/header.php'; ?>
+require PHP_ROOT . '/views/partials/header.php'; ?>
         <h1>Editer un livre</h1>
         <form action="?id=<?= $livre['id_livre']; ?>" method="POST">
             <div>
@@ -23,4 +23,4 @@ require PATH_PROJET . '/views/partials/header.php'; ?>
                 <button type="submit" name="envoyer">Editer livre</button>
             </div>               
         </form>
-<?php require PATH_PROJET . '/views/partials/footer.php'; ?>
+<?php require PHP_ROOT . '/views/partials/footer.php'; ?>

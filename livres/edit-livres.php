@@ -1,7 +1,4 @@
 <?php
-include dirname(__DIR__) . '/functions.php';
-require dirname(__DIR__) . '/dbconnexion.php';
-
 $idEditLivres = $_GET['id'] ?? null;
 
 if (! is_numeric($idEditLivres)  ) {
@@ -22,4 +19,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {
     redirect('/livres/list-livres.php');
 }
 
-include PATH_PROJET . '/views/livres/edit-livres-view.php';
+include PHP_ROOT . '/views/livres/edit-livres-view.php';

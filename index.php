@@ -2,11 +2,13 @@
 require 'includes/dbconnexion.php';
 
 require 'views/partials/header.php';
+
+require 'livres/add-livres.php';
 ?>
 
-<main>
+<!-- <main>
     <h1>La Bibliothèque</h1>
     <p>Gestionnaire de bibliothèque</p>
-</main>
+</main> -->
 
 <?php require 'views/partials/footer.php'; ?>

@@ -14,8 +14,19 @@ if (file_exists('config/env.php')) {
     die("No configuration file found !");
 }
 
-require PHP_ROOT.'/includes/functions.php';
-require PHP_ROOT.'/includes/functions-auth.php';
+if (ENABLE_DEBUG === 'on') {
+    // Enable all errors, warnings, and notices
+    error_reporting(E_ALL);
+
+    // Display errors directly to the browser
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+
+    // Optional: Set HTML-friendly output
+    ini_set('html_errors', 1);
+}
+require PHP_ROOT . '/includes/functions.php';
+require PHP_ROOT . '/includes/functions-auth.php';
 
 /*
  * Connect to the database service

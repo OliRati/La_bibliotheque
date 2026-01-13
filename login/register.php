@@ -1,19 +1,22 @@
 <?php
+require PHP_ROOT.'/includes/functions-utilisateur.php';
+
 $errors = [];
-$user = [];
+$utilisateur = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
-    $user['name'] = nettoyer($_POST['name']);
-    $user['login'] = nettoyer($_POST['login']);
-    $user['password'] = trim($_POST['password']);
-    $user['role'] = 'user';
+    $utilisateur['nom'] = nettoyer($_POST['nom']);
+    $utilisateur['prenom'] = nettoyer($_POST['prenom']);
+    $utilisateur['email'] = nettoyer($_POST['email']);
+    $utilisateur['password'] = trim($_POST['password']);
+    $utilisateur['role'] = 'abonne';
 
     $password_confirm = trim($_POST['password_confirm']);
 
-    if ($user['password'] !== $password_confirm)
+    if ($utilisateur['password'] !== $password_confirm)
         $errors[] = 'Les mots de passe ne correspondent pas !';
     else {
-        $state = register_user($pdo, $user);
+        $state = register_user($pdo, $utilisateur);
 
         if ($state['success'] === true) {
             redirect("?page=login");
@@ -23,14 +26,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
         $errors = [$state['message']];
     }
 } else {
-    $user = [
-        'name' => '',
-        'login' => '',
+    $utilisateur = [
+        'nom' => '',
+        'prenom' => '',
+        'email' => '',
         'password' => '',
         'role' => ''
     ];
 }
 
 $title_text = "Ajouter un utilisateur";
-$submit_text = "Ajouter";
+$submit_text = "Valider";
 require PHP_ROOT . '/views/login/register-view.php';

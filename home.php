@@ -1,8 +1,8 @@
 <?php require 'views/partials/header.php';?>
 
 <main>
-    <h1>La Bibliothèque</h1>
-    <p>Gestionnaire de bibliothèque</p>
+    <h1 class="title">La Bibliothèque</h1>
+    <p class="subtitle">Gestionnaire de bibliothèque</p>
 </main>
 
 <?php require 'views/partials/footer.php'; ?>

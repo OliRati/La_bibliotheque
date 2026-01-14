@@ -2,6 +2,13 @@
 
 <h1 class="title">Liste de emprunts</h1>
 
+<div class="button">
+    <a href="?page=add-emprunts">Ajouter un emprunt</a>
+</div>
+
+<?php if (empty($emprunts)) { ?>
+<?php } ?>
+
 <table>
     <thead>
         <tr>
@@ -11,6 +18,7 @@
             <th>Date de sortie</th>
             <th>Date de rendu</th>
             <th>Etat</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +30,10 @@
                 <td><?= $emprunt['date_sortie'] ?></td>
                 <td><?= $emprunt['date_rendu'] ?></td>
                 <td><?= $emprunt['statut'] ?></td>
+                <th>
+                    <a href="?page=edit-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Edit</a>
+                    <a href="?page=del-emprunts&id=<?= $emprunt['id_emprunt'] ?>"  onclick="return confirm('Etes vous certain de vouloir supprimer cet emprunt ?');">Supprimer</a>
+                </th>
             </tr>
         <?php } ?>
     </tbody>

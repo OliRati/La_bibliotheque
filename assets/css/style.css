@@ -235,9 +235,7 @@ form {
     border: none;
     border-radius: 1rem;
     font-size: 1.2rem;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2rem auto;
 
     a {
         color: black;

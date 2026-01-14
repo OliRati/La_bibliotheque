@@ -11,5 +11,9 @@ if (!array_key_exists($page,$routes)) {
     $page = '404';
 }
 
+if (!file_exists($routes[$page])) {
+    $page = '404';
+}
+
 require $routes[$page];
 die();

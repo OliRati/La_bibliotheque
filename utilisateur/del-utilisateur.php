@@ -17,7 +17,7 @@ if ($nbUtilisateurs <= 1) {
 $suppResultUtilisateur =supprimerUtilisateur($pdo,$idsuppUtilisateur);
 
 if($suppResultUtilisateur){
-    header("Location: " .WEB_ROOT ."/utilisateur/list-utilisateur.php");
+    redirect('?page=list-utilisateur');
     exit;
 }
 

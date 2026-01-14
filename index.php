@@ -1,12 +1,15 @@
 <?php
+session_start();
+
 require 'includes/dbconnexion.php';
+require 'config/routes.php';
 
-require 'views/partials/header.php';
-?>
+$pageFiltre = filter_input(INPUT_GET, 'page' , FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$page = $pageFiltre ?? 'home';
 
-<main>
-    <h1>La Bibliothèque</h1>
-    <p>Gestionnaire de bibliothèque</p>
-</main>
+if (!array_key_exists($page,$routes)) {
+    $page = '404';
+}
 
-<?php require 'views/partials/footer.php'; ?>
+require $routes[$page];
+die();

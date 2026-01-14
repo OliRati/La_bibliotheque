@@ -1,0 +1,26 @@
+### Cloner le Repos
+
+Aller dans le repertoire nouvellement crée
+
+### Utilisation de Docker pour tester le projet
+
+Lancer la stack avec
+```bash
+docker compose up -d --build
+```
+
+### Se rendre sur adminer
+
+    http://localhost/8081
+
+    se logger en tant que :
+        utilisateur : root
+        Mot de passe : root
+
+    Mettre en place la base de données contenue dans le fichier
+
+        [text](datas/database.sql)
+
+### Ensuite aller dans un navigateur sur l'url
+
+    http://localhost:8080

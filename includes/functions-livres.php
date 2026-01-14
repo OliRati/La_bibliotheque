@@ -22,12 +22,14 @@ function getLivre($pdo, $idParam) {
 function ajoutLivre($pdo,$auteurParam, $titreParam, $resumeParam, $genreParam)  {
     $sql = "INSERT INTO livre (auteur,titre,resume,genre) VALUES (:auteur,:titre,:resume,:genre)";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([
+    $state = $stmt->execute([
         ':auteur'          => $auteurParam,
         ':titre'          => $titreParam,
         ':resume'         => $resumeParam,
         ':genre'          => $genreParam
     ]);
+
+    return $state;
 }
 
 function updateLivre($pdo,$auteurParam, $titreParam, $resumeParam, $genreParam,$idParam){
@@ -51,6 +53,27 @@ function supprimerLivre($pdo, $id)
     return $suppResult;
 }
 
-function searchLivres($pdo, $searchTerm)
+function searchLivres(PDO $pdo, string $searchTerm): array
 {
+    $sql = "
+        SELECT *
+        FROM livre
+        WHERE auteur LIKE :search1
+           OR titre LIKE :search2
+           OR `genre` LIKE :search3
+        ORDER BY id_livre DESC
+    ";
+
+    $stmt = $pdo->prepare($sql);
+
+    $like = '%' . $searchTerm . '%';
+
+    $stmt->execute([
+        ':search1' => $like,
+        ':search2' => $like,
+        ':search3' => $like
+    ]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
+

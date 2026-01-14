@@ -62,4 +62,4 @@ INSERT INTO emprunt (id_livre, id_utilisateur, date_sortie, date_rendu, statut) 
 (2, 2, '2026-01-05', '2026-01-12', 'terminé'),
 (3, 3, '2026-01-10', NULL, 'en cours'),
 (4, 4, '2026-01-15', NULL, 'en cours'),
-(5, 1, NULL, NULL, 'en attente');
+(5, 5, NULL, NULL, 'en attente');

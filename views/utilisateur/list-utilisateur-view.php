@@ -14,7 +14,7 @@ include 'views/partials/header.php';
         <h1 class="title">Liste des utilisateurs</h1>
         <div class="button">
             <a href="?page=add-utilisateur"
-            role="button"> Ajouter un utilisateur</a>
+            role="button">Ajouter un utilisateur</a>
         </div>
 
         <table>

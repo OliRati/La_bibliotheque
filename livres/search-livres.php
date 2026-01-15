@@ -12,8 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($searchTerm !== '') {
             $livres = searchLivres($pdo, $searchTerm);
         }
-    } else {
-        $searchTerm = '';
     }
 
     if (isset($_POST['emprunter-button'])) {
@@ -23,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         $id_livre = intval($_POST['id_livre'] ?? 0);
+
         if (is_abonne()) {
 
             if (countEmpruntsUtilisateur($pdo, $_SESSION['id_utilisateur']) >= 5) {
@@ -44,4 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+if ($searchTerm === '') {
+    $livres = Lister20DerniersLivres($pdo);
+}
+
 include 'views/livres/search-livres-view.php';

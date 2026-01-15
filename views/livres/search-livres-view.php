@@ -16,35 +16,37 @@
         <?php echo htmlspecialchars($error); ?>
     </div>
 <?php endif; ?>
-<?php if (!empty($searchTerm)): ?>
+
+<?php if (empty($searchTerm)): ?>
+    <h3 class="subtitle">Liste des derniers livres reçus</h3>
+<?php else: ?>
     <h3 class="subtitle">Résultats de la recherche pour "<?php echo htmlspecialchars($searchTerm); ?>"</h3>
+<?php endif ?>
 
-    <?php if (!empty($livres)): ?>
-        <ul>
-            <?php foreach ($livres as $livre): ?>
-                <li>
-                    <strong><?php echo htmlspecialchars($livre['titre']); ?></strong><br>
-                    Auteur : <?php echo htmlspecialchars($livre['auteur']); ?><br>
-                    Genre : <?php echo htmlspecialchars($livre['genre'] ?? '—'); ?>
-
-                    <?php if (!is_logged_in()) { ?>
-                        <br><strong><a href="?page=login">Connectez-vous pour emprunter</a></strong>
-                    <?php } else { ?>
-                        <form method="POST" style="margin-top: 8px;">
-                            <input type="hidden" name="id_livre" value="<?= $livre['id_livre']; ?>">
-                            <input type="hidden" name="search" value="<?= $searchTerm; ?>">
-                            <button type="submit" name="emprunter-button" class="btn btn-primary">
-                                Emprunter
-                            </button>
-                        </form>
-                    <?php } ?>
-                </li>
-                <hr>
-            <?php endforeach; ?>
-        </ul>
-    <?php else: ?>
-        <p>Aucun livre trouvé.</p>
-    <?php endif; ?>
+<?php if (!empty($livres)): ?>
+    <div class="livres-container">
+        <?php foreach ($livres as $livre): ?>
+            <div class="card-livre">
+                <div class="card-livre-titre"><?php echo htmlspecialchars($livre['titre']); ?></div>
+                <div class="card-livre-auteur"><span>Auteur : </span><?php echo htmlspecialchars($livre['auteur']); ?></div>
+                <div class="card-livre-genre"><span>Genre : </span><?php echo htmlspecialchars($livre['genre'] ?? '—'); ?></div>
+                <div class="card-livre-resume"><span>Résumé : </span><?= htmlspecialchars($livre['resume']) ?></div>
+                <?php if (!is_logged_in()) { ?>
+                    <div class="card-livre-connect"><a href="?page=login">Connectez-vous pour emprunter</a></div>
+                <?php } else { ?>
+                    <form method="POST" style="margin-top: 8px;">
+                        <input type="hidden" name="id_livre" value="<?= $livre['id_livre']; ?>">
+                        <input type="hidden" name="search" value="<?= $searchTerm; ?>">
+                        <button type="submit" name="emprunter-button" class="btn btn-primary">
+                            Emprunter
+                        </button>
+                    </form>
+                <?php } ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+<?php else: ?>
+    <p class="subtitle">Aucun livre trouvé.</p>
 <?php endif; ?>
 
 <?php include PHP_ROOT . '/views/partials/footer.php'; ?>

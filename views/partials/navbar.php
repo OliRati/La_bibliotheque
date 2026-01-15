@@ -10,6 +10,12 @@
 
             <?php if (is_admin()) { ?>
                 <div class="menu-item">
+                    <a href="<?= WEB_ROOT . "?page=search-livres" ?>">
+                        Rechercher
+                    </a>
+                </div>
+
+                <div class="menu-item">
                     <a href="<?= WEB_ROOT . "?page=list-livres" ?>">
                         Livres
                     </a>

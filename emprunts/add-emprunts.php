@@ -11,6 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $emprunt['date_rendu'] = nettoyer($_POST['date_rendu']);
     $emprunt['statut'] = nettoyer($_POST['statut']);
 
+    // vérifier que l'id du livre existe dans la base de données 
+    // vérifier que l'id de l'utilisateur existe dans la base de données et que ce soit bien un abonné 
+
     $state = addEmprunt($pdo, $emprunt);
     if ($state) {
         redirect("?page=list-emprunts");

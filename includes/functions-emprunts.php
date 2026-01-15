@@ -98,12 +98,11 @@ function getEmpruntsEnCoursLivre($pdo, $idLivre)
 {
     $sql = "SELECT count(*) as count_emprunts
             FROM emprunt
-            WHERE date_sortie IS NOT NULL OR (date_sortie IS NOT NULL AND date_rendu IS NULL)";
+            WHERE id_livre = :id_livre AND (date_sortie IS NULL OR (date_sortie IS NOT NULL AND date_rendu IS NULL))";
     $stmt = $pdo->prepare($sql);
-    $stmt->execute();
+    $stmt->execute([':id_livre' => $idLivre]);
 
     $emprunts = $stmt->fetch();
-
     return $emprunts['count_emprunts'];
 }
 
@@ -162,3 +161,5 @@ function getEmpruntsEnAttente($pdo)
 
     return $emprunts;
 }
+
+// foncti+on utilitaire qui vérifie que l'id livre et id utilisateur sont valides (checkIds)

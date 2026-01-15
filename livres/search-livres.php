@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['emprunter-button'])) {
         $id_livre = intval($_POST['id_livre'] ?? 0);
         if (is_abonne()) {
-
             if (getEmpruntsEnCoursLivre($pdo, $id_livre) == 0) {
                 $emprunt = [
                     ':id_livre' => $id_livre,

@@ -26,11 +26,17 @@
                     <strong><?php echo htmlspecialchars($livre['titre']); ?></strong><br>
                     Auteur : <?php echo htmlspecialchars($livre['auteur']); ?><br>
                     Genre : <?php echo htmlspecialchars($livre['genre'] ?? '—'); ?>
-                    <form method="POST" style="margin-top: 8px;">
-                        <input type="hidden" name="id_livre" value="<?php echo $livre['id_livre']; ?>">
-                        <button type="submit" name="emprunter-button" class="btn btn-primary">
-                            Emprunter
-                        </button>
+
+                    <?php if (!is_logged_in()) { ?>
+                        <br><strong><a href="?page=login">Connectez-vous pour emprunter</a></strong>
+                    <?php } else { ?>
+                        <form method="POST" style="margin-top: 8px;">
+                            <input type="hidden" name="id_livre" value="<?php echo $livre['id_livre']; ?>">
+                            <button type="submit" name="emprunter-button" class="btn btn-primary">
+                                Emprunter
+                            </button>
+                        </form>
+                    <?php } ?>
                 </li>
                 <hr>
             <?php endforeach; ?>

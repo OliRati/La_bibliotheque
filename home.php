@@ -1,8 +1,7 @@
 <?php require 'views/partials/header.php'; ?>
 
 <main>
-    <h1 class="title">La Bibliothèque</h1>
-    <p class="subtitle">Gestionnaire de bibliothèque</p>
+    <h1 class="title">Bienvenue sur La Bibliothèque</h1>
     <!-- horaire d'ouverture -->
     <section class="horaires-cartes">
         <h2 class="title">Horaire d'ouverture</h2>
@@ -45,7 +44,7 @@
             <li>Chaque utilisateur peut emprunter <strong>jusqu'à 5 livres</strong> simultanément</li>
             <li>La durée maximal de prêt est de <trong>1 mois</trong> à partir de la date de l'emprunt</li>
             <li>Les retards peuvent entrainer des pénalités</li>
-            <li>Les réservations en ligne doivent être récupérées pendant les horaires de retrait.</li>
+            <li>Les réservations en ligne doivent être récupérées pendant les horaires de retrait sous un délai de 1 mois sous peine d'annulation de la réservation.</li>
         </ul>
     </section>
     <section class="conditions-emprunt">

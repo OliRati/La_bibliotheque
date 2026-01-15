@@ -9,6 +9,15 @@ function listerLivres($pdo)
     return $livres;
 }
 
+function Lister20DerniersLivres($pdo)
+{
+    $sql = "SELECT * FROM livre ORDER BY id_livre DESC LIMIT 20";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+    $livres = $stmt->fetchAll();
+    return $livres;
+}
+
 function getLivre($pdo, $idParam) {
     $sql = "SELECT * FROM livre WHERE id_livre = :id";
     $stmt = $pdo->prepare($sql);

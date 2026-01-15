@@ -33,7 +33,7 @@
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a href="?page=validate-retour-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Valider ce retour</a>
+                        <a href="?page=validate-retour-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Valider retour</a>
                     </td>
                 </tr>
             <?php } ?>

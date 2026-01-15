@@ -7,7 +7,7 @@
 }
 
 li {
-  list-style-type: none;  
+    list-style-type: none;
 }
 
 a {
@@ -91,6 +91,10 @@ th {
 .error {
     color: lightcoral;
     font-size: 1.2rem;
+}
+
+.caution {
+    background-color: rgb(216, 141, 141);
 }
 
 /*
@@ -218,6 +222,17 @@ form {
         cursor: pointer;
     }
 
+    button[type="submit"] {
+        background-color: lightsalmon;
+        cursor: pointer;
+        border: none;
+        padding: 0.5rem 1rem;
+    }
+
+    button[type="submit"]:hover {
+        background-color: rgb(240, 175, 149);
+    }
+
     .input-file-container {
         width: 40rem;
         display: inline-block;
@@ -312,6 +327,7 @@ form {
     button[type="submit"] {
         background-color: transparent;
         border: none;
+        padding: 0;
 
         img {
             width: 1.5rem;
@@ -322,6 +338,7 @@ form {
 
     button[type="submit"]:hover {
         cursor: pointer;
+        background-color: transparent;
         transform: scale(1.2);
         transform: all 0.3 ease-out;
     }
@@ -329,6 +346,7 @@ form {
 }
 
 /* Horaires en cartes */
+
 .horaires-cartes {
     margin-top: 3rem;
     text-align: center;
@@ -353,13 +371,13 @@ form {
     padding: 1.5rem 2rem;
     width: 250px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
 }
 
 .card h3 {
@@ -392,7 +410,7 @@ form {
     background-color: #444;
     padding: 2rem;
     border-radius: 10px;
-    box-shadow: 0 4px rgba(0,0,0,0.3);
+    box-shadow: 0 4px rgba(0, 0, 0, 0.3);
 }
 
 .conditions-emprunt h2 {
@@ -409,4 +427,57 @@ form {
 
 .conditions-emprunt li {
     margin-bottom: 0.8rem;
+}
+
+/*
+ * Presentation livres CSS
+ */
+
+.livres-container {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-livre {
+    padding: 0.8rem;
+    background-color: #444;
+    border-radius: 0.5rem;
+    width: 100%;
+
+    .card-livre-titre {
+        font-size: 1.5rem;
+        color: lightcyan;
+        margin-bottom: 0.8rem;
+    }
+
+    .card-livre-auteur,
+    .card-livre-genre,
+    .card-livre-resume {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+
+        span {
+            font-weight: 600;
+        }
+    }
+
+    .card-livre-connect {
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .livres-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card-livre {
+        width: 24%;
+        min-width: 16rem;
+    }
 }

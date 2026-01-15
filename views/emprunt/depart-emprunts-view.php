@@ -9,6 +9,7 @@
     <table>
         <thead>
             <tr>
+                <th>Date réservation</th>
                 <th>Abonné </th>
                 <th>Titre du livre</th>
                 <th>Actions</th>
@@ -17,17 +18,18 @@
         <tbody>
             <?php foreach ($emprunts as $emprunt) { ?>
                 <tr>
+                    <td><?= $emprunt['date_reservation'] ?></td>
                     <td><?= $emprunt['nom'] . ' ' . $emprunt['prenom'] ?></td>
                     <td><?= $emprunt['titre'] ?></td>
                     <td>
-                        <a href="?page=validate-depart-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Valider ce départ</a>
+                        <a href="?page=validate-depart-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Valider départ</a>
                         <?php
                         $dateReservation = new DateTime($emprunt['date_reservation']);
                         $dateRetourPrevue = clone $dateReservation;
                         $dateRetourPrevue->modify('+1 month'); // ou la durée réelle de prêt
                         $en_retard = new DateTime() > $dateRetourPrevue;
                         if ($en_retard) { ?>
-                            <a href="?page=annulation-emprunts&id=<?= $emprunt['id_emprunt'] ?>" style="background-color: lightcoral" ;>Annuler</a>
+                            <a class="caution" href="?page=annulation-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Supprimer</a>
                         <?php } ?>
                     </td>
                 </tr>

@@ -93,6 +93,10 @@ th {
     font-size: 1.2rem;
 }
 
+.caution {
+    background-color: rgb(216, 141, 141);
+}
+
 /*
  * Header CSS style
  */
@@ -222,7 +226,7 @@ form {
         background-color: lightsalmon;
         cursor: pointer;
         border: none;
-        padding: 0.5rem 1rem;    
+        padding: 0.5rem 1rem;
     }
 
     button[type="submit"]:hover {

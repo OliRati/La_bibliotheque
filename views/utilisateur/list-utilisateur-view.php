@@ -36,9 +36,9 @@ include 'views/partials/header.php';
                         <td><?= htmlspecialchars($utilisateur['email']); ?></td>
                         <td>
                             <a href="<?= WEB_ROOT . '?page=edit-utilisateur&id=' .$utilisateur['id_utilisateur'] ?>"
-                            role="button">Edit</a>
+                            role="button">Editer</a>
 
-                            <a href="<?= WEB_ROOT . '?page=del-utilisateur&id=' .$utilisateur['id_utilisateur'] ?>"
+                            <a class="caution" href="<?= WEB_ROOT . '?page=del-utilisateur&id=' .$utilisateur['id_utilisateur'] ?>"
                             role="button"
                             onclick="return confirm('Etes-vous sur de vouloir supprimer cet utilisateur ?');">Supprimer</a>
                         </td>

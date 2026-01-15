@@ -32,8 +32,8 @@
                     <td><?= $emprunt['date_rendu'] ?></td>
                     <td><?= $emprunt['statut'] ?></td>
                     <th>
-                        <a href="?page=edit-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Edit</a>
-                        <a href="?page=del-emprunts&id=<?= $emprunt['id_emprunt'] ?>"
+                        <a href="?page=edit-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Editer</a>
+                        <a class="caution" href="?page=del-emprunts&id=<?= $emprunt['id_emprunt'] ?>"
                             onclick="return confirm('Etes vous certain de vouloir supprimer cet emprunt ?');">Supprimer</a>
                     </th>
                 </tr>

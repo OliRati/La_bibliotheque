@@ -28,8 +28,8 @@ require PHP_ROOT. '/views/partials/header.php';
                     <td><?= $livre['resume']; ?></td>
                     <td><?= $livre['genre']; ?></td>
                     <td>
-                        <a href="<?= WEB_ROOT . '?page=edit-livres&id=' . $livre['id_livre'] ?>" role="button">Edit</a>
-                        <a href="<?= WEB_ROOT . '?page=del-livres&id=' . $livre['id_livre'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce livre ?');" style="background-color: lightcoral;">Supprimer</a>
+                        <a href="<?= WEB_ROOT . '?page=edit-livres&id=' . $livre['id_livre'] ?>" role="button">Editer</a>
+                        <a class="caution" href="<?= WEB_ROOT . '?page=del-livres&id=' . $livre['id_livre'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce livre ?');">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach ?>

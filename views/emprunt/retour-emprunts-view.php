@@ -10,20 +10,31 @@
         <thead>
             <tr>
                 <th>Date de sortie</th>
-                <th>Abonné </th>
+                <th>Abonné</th>
                 <th>Titre du livre</th>
+                <th>Retard</th> <!-- Nouvelle colonne -->
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($emprunts as $emprunt) { ?>
+            <?php foreach ($emprunts as $emprunt) { 
+                $dateSortie = new DateTime($emprunt['date_sortie']);
+                $dateRetourPrevue = clone $dateSortie;
+                $dateRetourPrevue->modify('+1 month'); // ou la durée réelle de prêt
+                $en_retard = new DateTime() > $dateRetourPrevue;
+            ?>
                 <tr>
-                    <td><?= $emprunt['date_sortie'] ?></td>
-                    <td><?= $emprunt['nom'].' '.$emprunt['prenom'] ?></td>
-                    <td><?= $emprunt['titre'] ?></td>
-                    <th>
+                    <td><?= $dateSortie->format('Y/m/d') ?></td>
+                    <td><?= htmlspecialchars($emprunt['nom'].' '.$emprunt['prenom']) ?></td>
+                    <td><?= htmlspecialchars($emprunt['titre']) ?></td>
+                    <td>
+                        <?php if ($en_retard): ?>
+                            <span class="error">Retard</span>
+                        <?php endif; ?>
+                    </td>
+                    <td>
                         <a href="?page=validate-retour-emprunts&id=<?= $emprunt['id_emprunt'] ?>">Valider ce retour</a>
-                    </th>
+                    </td>
                 </tr>
             <?php } ?>
         </tbody>

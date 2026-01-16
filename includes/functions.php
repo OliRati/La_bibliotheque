@@ -29,7 +29,7 @@ function redirect($url)
 function nettoyer($dataParam)
 {
     $data = trim($dataParam);
-    $date = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
+    $data = htmlspecialchars($data, ENT_QUOTES, 'UTF-8');
     return $data;
 }
 

@@ -1,14 +1,14 @@
-<?php
-$titleBibliothèque = "Liste des livres";
-require PHP_ROOT. '/views/partials/header.php';
-    if (count($livres) === 0) :
-        echo '<h3>Aucun livre !</h3>';
-        echo '<a href="' .  WEB_ROOT . '?page=add-livres" role="button">Ajouter un livre</a>';
-        die();
-    endif;
-?>
-    <h1 class="title">Liste des livres</h1>
-    <div class="button"><a href="<?= WEB_ROOT . '?page=add-livres' ?>" role="button">Ajouter un livre</a></div>
+<?php require PHP_ROOT . '/views/partials/header.php'; ?>
+
+<h1 class="title">Liste des livres</h1>
+
+<div class="centered">
+    <a class="button" href="<?= WEB_ROOT . '?page=add-livres' ?>" role="button">Ajouter un livre</a>
+</div>
+
+<?php if (count($livres) === 0): ?>
+    <div class="subtitle">Aucun livre !</div>
+<?php else: ?>
     <table>
         <thead>
             <tr>
@@ -20,7 +20,7 @@ require PHP_ROOT. '/views/partials/header.php';
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($livres as $livre) : ?>
+            <?php foreach ($livres as $livre): ?>
                 <tr>
                     <td><?= $livre['id_livre']; ?></td>
                     <td><?= $livre['auteur']; ?></td>
@@ -29,10 +29,13 @@ require PHP_ROOT. '/views/partials/header.php';
                     <td><?= $livre['genre']; ?></td>
                     <td>
                         <a href="<?= WEB_ROOT . '?page=edit-livres&id=' . $livre['id_livre'] ?>" role="button">Editer</a>
-                        <a class="caution" href="<?= WEB_ROOT . '?page=del-livres&id=' . $livre['id_livre'] ?>" role="button" onclick="return confirm('Etes vous certain de vouloir supprimer ce livre ?');">Supprimer</a>
+                        <a class="caution" href="<?= WEB_ROOT . '?page=del-livres&id=' . $livre['id_livre'] ?>" role="button"
+                            onclick="return confirm('Etes vous certain de vouloir supprimer ce livre ?');">Supprimer</a>
                     </td>
                 </tr>
             <?php endforeach ?>
         </tbody>
     </table>
-<?php require PHP_ROOT . '/views/partials/footer.php';  ?>
+<?php endif ?>
+
+<?php require PHP_ROOT . '/views/partials/footer.php'; ?>

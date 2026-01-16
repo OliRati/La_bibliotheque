@@ -1,12 +1,11 @@
-<?php
-include PHP_ROOT . '/views/partials/header.php';
-?>
+<?php include PHP_ROOT . '/views/partials/header.php'; ?>
+
 <h1 class="title">Editer un utilisateur</h1>
 
-<?php if (!empty($errors)) : ?>
+<?php if (!empty($errors)): ?>
     <div>
         <ul>
-            <?php foreach ($errors as $error) : ?>
+            <?php foreach ($errors as $error): ?>
                 <li><?= htmlspecialchars($error) ?></li>
             <?php endforeach; ?>
         </ul>
@@ -15,35 +14,49 @@ include PHP_ROOT . '/views/partials/header.php';
 
 <form action="" method="POST">
     <div>
-        <label for="nom" class="form-label">Nom :</label>
-        <input type="text" name="nom" value="<?= htmlspecialchars($nom); ?>" required>
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" value="<?= htmlspecialchars($nom); ?>" required>
     </div>
     <div>
-        <label for="prenom" class="form-label">Prénom :</label>
-        <input type="text" name="prenom" value="<?= htmlspecialchars($prenom); ?>" required>
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" value="<?= htmlspecialchars($prenom); ?>" required>
     </div>
     <div>
-        <label for="email" class="form-label">Email</label>
-        <input type="email" name="email" value="<?= htmlspecialchars($email); ?>" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="<?= htmlspecialchars($email); ?>" required>
     </div>
     <div>
-        <label for="password" class="form-label">Mot de passe</label>
-        <input type="password" name="password" id="password" class="form-control" placeholder="mot de passe">
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password">
     </div>
     <div>
-        <label for="password_confirm" class="form-label">Confirmation mot de passe</label>
-        <input type="password" name="password_confirm" id="password_confirm" class="form-control" placeholder="confirmer mot de passe">
+        <label for="password_confirm">Confirmation mot de passe</label>
+        <input type="password" name="password_confirm" id="password_confirm">
     </div>
     <div>
         <label for="role">Rôle</label>
         <select name="role" id="role">
-            <option value="abonne" selected>Abonne</option>
-            <option value="employe">Employe</option>
-            <option value="admin">Administrateur</option>
+            <option value="abonne" <?= $role === 'abonne' ? 'selected' : '' ?>>
+                Abonne
+            </option>
+            <option value="employe" <?= $role === 'employe' ? 'selected' : '' ?>>
+                Employe
+            </option>
+            <option value="admin" <?= $role === 'admin' ? 'selected' : '' ?>>
+                Administrateur
+            </option>
         </select>
     </div>
     <div>
-        <input type="submit" value="Editer Utilisateur" name="envoyer">
+        <input type="submit" value="Modifier Utilisateur" name="envoyer">
+        <?php if (!empty($errors)) { ?>
+            <div class="error">
+                <?php foreach ($errors as $error) { ?>
+                    <p><?= $error ?></p>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 </form>
+
 <?php include PHP_ROOT . '/views/partials/footer.php';

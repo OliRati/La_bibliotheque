@@ -1,6 +1,6 @@
 <?php
-include 'includes/functions-livres.php';
-include 'includes/functions-emprunts.php';
+include PHP_ROOT . '/includes/functions-livres.php';
+include PHP_ROOT . '/includes/functions-emprunts.php';
 
 $error = '';
 $searchTerm = '';
@@ -48,4 +48,4 @@ if ($searchTerm === '') {
     $livres = Lister20DerniersLivres($pdo);
 }
 
-include 'views/livres/search-livres-view.php';
+include PHP_ROOT . '/views/livres/search-livres-view.php';

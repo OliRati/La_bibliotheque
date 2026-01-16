@@ -2,8 +2,8 @@
 
 <h1 class="title">Liste des emprunts</h1>
 
-<div class="button">
-    <a href="?page=add-emprunts">Ajouter un emprunt</a>
+<div class="centered">
+    <a class="button" href="?page=add-emprunts">Ajouter un emprunt</a>
 </div>
 
 <?php if (empty($emprunts)) { ?>

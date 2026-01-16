@@ -5,15 +5,15 @@
 <form action="" method="POST">
     <div>
         <label for="nom">Nom</label>
-        <input type="text" name="nom" id="nom" required>
+        <input type="text" name="nom" id="nom" value="<?= $nom ?>" required>
     </div>
     <div>
         <label for="prenom">Prenom</label>
-        <input type="text" name="prenom" id="prenom" required>
+        <input type="text" name="prenom" id="prenom" value="<?= $prenom ?>" required>
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" id="email" required>
+        <input type="text" name="email" id="email" value="<?= $email ?>" required>
     </div>
     <div>
         <label for="password">Mot de passe</label>
@@ -33,6 +33,13 @@
     </div>
     <div>
         <input type="submit" value="Ajouter utilisateur" name="envoyer">
+        <?php if (!empty($errors)) { ?>
+            <div class="error">
+                <?php foreach ($errors as $error) { ?>
+                    <p><?= $error ?></p>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 </form>
 

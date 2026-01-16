@@ -9,7 +9,6 @@ if (!$idUtilisateur || !is_numeric($idUtilisateur)) {
     dd("Utilisateur introuvable");
 }
 
-$idUtilisateur = (int) $idUtilisateur;
 $utilisateur = getUtilisateur($pdo, $idUtilisateur);
 
 if (!$utilisateur) {
@@ -19,6 +18,7 @@ if (!$utilisateur) {
 $nom = $utilisateur['nom'];
 $prenom = $utilisateur['prenom'];
 $email = $utilisateur['email'];
+$role = $utilisateur['role'];
 
 // Traitement du formulaire
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoyer'])) {

@@ -4,6 +4,8 @@ session_start();
 require 'includes/dbconnexion.php';
 require 'config/routes.php';
 
+generate_csrf_token();
+
 $pageFiltre = filter_input(INPUT_GET, 'page', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $page = $pageFiltre ?? 'home';
 

@@ -21,6 +21,13 @@
     </div>
     <div>
         <input type="submit" name="envoyer" value="Editer livre">
+        <?php if (!empty($errors)) { ?>
+            <div class="error">
+                <?php foreach ($errors as $error) { ?>
+                    <p><?= $error ?></p>
+                <?php } ?>
+            </div>
+        <?php } ?>
     </div>
 </form>
 

@@ -20,8 +20,6 @@
 -- | genre      | varchar(30) NOT NULL           |
 -- +------------+--------------------------------+
 
-
-
 -- table : emprunt
 -- +------------+----------+-----------+-----------+
 -- |id_emprunt       | int NOT NULL AUTO_INCREMENT |
@@ -32,6 +30,3 @@
 -- |date_reservation |  date NOT NULL              |
 -- |statut           |   varchar(50)               |  
 -- +-----------------+-----------------------------+
--- 
-
---
